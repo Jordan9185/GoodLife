@@ -23,7 +23,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginButtonTapped:" destination="eC9-UL-oW2" eventType="touchUpInside" id="Yse-uw-mMn"/>
+                                    <action selector="loginButtonTapped:" destination="eC9-UL-oW2" eventType="touchUpInside" id="fas-OM-5IV"/>
+                                    <segue destination="cxe-rw-eEa" kind="presentation" id="Xgw-UO-bwB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,6 +36,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAL-P7-ycI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1199.2" y="17.541229385307346"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="9Va-YF-5fP">
+            <objects>
+                <viewController id="cxe-rw-eEa" customClass="WebViewController" customModule="GoodLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T0X-Jz-zmW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09F-tM-Quo">
+                                <rect key="frame" x="61" y="289" width="265" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="BUv-EP-VqZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7b-lv-7HR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940" y="17.541229385307346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a8y-ht-sFk">

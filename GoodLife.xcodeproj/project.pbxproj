@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		980F18971F7B9376005984C5 /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980F18961F7B9376005984C5 /* Landing.storyboard */; };
+		980F18991F7B9589005984C5 /* Landing+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18981F7B9589005984C5 /* Landing+Constants.swift */; };
+		980F18A21F7BBC59005984C5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18A11F7BBC59005984C5 /* WebViewController.swift */; };
 		98E9EE7B1F7B8EF70002C412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9EE7A1F7B8EF70002C412 /* AppDelegate.swift */; };
 		98E9EE821F7B8EF70002C412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9EE811F7B8EF70002C412 /* Assets.xcassets */; };
 		98E9EE851F7B8EF70002C412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E9EE831F7B8EF70002C412 /* LaunchScreen.storyboard */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		980F18961F7B9376005984C5 /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
+		980F18981F7B9589005984C5 /* Landing+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Landing+Constants.swift"; sourceTree = "<group>"; };
+		980F18A11F7BBC59005984C5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		98E9EE771F7B8EF70002C412 /* GoodLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E9EE7A1F7B8EF70002C412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E9EE811F7B8EF70002C412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				98E9EE911F7B90BB0002C412 /* LandingViewController.swift */,
+				980F18981F7B9589005984C5 /* Landing+Constants.swift */,
 				980F18961F7B9376005984C5 /* Landing.storyboard */,
+				980F18A11F7BBC59005984C5 /* WebViewController.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -170,6 +176,8 @@
 			files = (
 				98E9EE921F7B90BB0002C412 /* LandingViewController.swift in Sources */,
 				98E9EE7B1F7B8EF70002C412 /* AppDelegate.swift in Sources */,
+				980F18991F7B9589005984C5 /* Landing+Constants.swift in Sources */,
+				980F18A21F7BBC59005984C5 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

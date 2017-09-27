@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
 class LandingViewController: UIViewController {
 
+    let requestCode: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
-        
     }
-
+    
 }
