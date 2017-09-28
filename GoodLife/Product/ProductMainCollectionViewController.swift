@@ -14,37 +14,33 @@ class ProductMainCollectionViewController: UICollectionViewController {
 
     let productManager = ProductManager()
     
+    var products = [Product]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         productManager.delegate = self
+        
         productManager.getProductList(page: 0)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return products.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
     
-        // Configure the cell
+        cell.titleLabel.text = products[indexPath.row].title
     
         return cell
     }
@@ -58,6 +54,8 @@ extension ProductMainCollectionViewController: ProductManagerDelegate {
         print(products)
         
         print("count: ", products.count)
+        
+        self.products = products
     }
     
 }
