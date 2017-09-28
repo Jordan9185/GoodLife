@@ -10,6 +10,11 @@
 		980F18971F7B9376005984C5 /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980F18961F7B9376005984C5 /* Landing.storyboard */; };
 		980F18991F7B9589005984C5 /* Landing+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18981F7B9589005984C5 /* Landing+Constants.swift */; };
 		980F18A21F7BBC59005984C5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18A11F7BBC59005984C5 /* WebViewController.swift */; };
+		980F18A91F7BE5B1005984C5 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980F18A81F7BE5B1005984C5 /* Product.storyboard */; };
+		980F18AB1F7C91A3005984C5 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18AA1F7C91A3005984C5 /* ProductManager.swift */; };
+		980F18AD1F7C969D005984C5 /* Product+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18AC1F7C969D005984C5 /* Product+Constants.swift */; };
+		980F18AF1F7C97C2005984C5 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18AE1F7C97C2005984C5 /* APIKey.swift */; };
+		980F18B11F7C9AD0005984C5 /* ProductMainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */; };
 		98E9EE7B1F7B8EF70002C412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9EE7A1F7B8EF70002C412 /* AppDelegate.swift */; };
 		98E9EE821F7B8EF70002C412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9EE811F7B8EF70002C412 /* Assets.xcassets */; };
 		98E9EE851F7B8EF70002C412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E9EE831F7B8EF70002C412 /* LaunchScreen.storyboard */; };
@@ -20,6 +25,11 @@
 		980F18961F7B9376005984C5 /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
 		980F18981F7B9589005984C5 /* Landing+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Landing+Constants.swift"; sourceTree = "<group>"; };
 		980F18A11F7BBC59005984C5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		980F18A81F7BE5B1005984C5 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
+		980F18AA1F7C91A3005984C5 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
+		980F18AC1F7C969D005984C5 /* Product+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+Constants.swift"; sourceTree = "<group>"; };
+		980F18AE1F7C97C2005984C5 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMainCollectionViewController.swift; sourceTree = "<group>"; };
 		98E9EE771F7B8EF70002C412 /* GoodLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E9EE7A1F7B8EF70002C412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E9EE811F7B8EF70002C412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +49,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		980F18A31F7BE450005984C5 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				980F18A81F7BE5B1005984C5 /* Product.storyboard */,
+				980F18AA1F7C91A3005984C5 /* ProductManager.swift */,
+				980F18AC1F7C969D005984C5 /* Product+Constants.swift */,
+				980F18AE1F7C97C2005984C5 /* APIKey.swift */,
+				980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		98E9EE6E1F7B8EF70002C412 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +80,12 @@
 		98E9EE791F7B8EF70002C412 /* GoodLife */ = {
 			isa = PBXGroup;
 			children = (
-				98E9EE861F7B8EF70002C412 /* Info.plist */,
-				98E9EE901F7B907C0002C412 /* Landing */,
 				98E9EE8C1F7B900C0002C412 /* AppDelegate */,
+				98E9EE901F7B907C0002C412 /* Landing */,
+				980F18A31F7BE450005984C5 /* Product */,
 				98E9EE8D1F7B901F0002C412 /* LaunchScreen */,
 				98E9EE8E1F7B904C0002C412 /* Assets */,
+				98E9EE861F7B8EF70002C412 /* Info.plist */,
 			);
 			path = GoodLife;
 			sourceTree = "<group>";
@@ -163,6 +186,7 @@
 			files = (
 				98E9EE851F7B8EF70002C412 /* LaunchScreen.storyboard in Resources */,
 				98E9EE821F7B8EF70002C412 /* Assets.xcassets in Resources */,
+				980F18A91F7BE5B1005984C5 /* Product.storyboard in Resources */,
 				980F18971F7B9376005984C5 /* Landing.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,7 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				98E9EE921F7B90BB0002C412 /* LandingViewController.swift in Sources */,
+				980F18AF1F7C97C2005984C5 /* APIKey.swift in Sources */,
+				980F18AD1F7C969D005984C5 /* Product+Constants.swift in Sources */,
+				980F18AB1F7C91A3005984C5 /* ProductManager.swift in Sources */,
 				98E9EE7B1F7B8EF70002C412 /* AppDelegate.swift in Sources */,
+				980F18B11F7C9AD0005984C5 /* ProductMainCollectionViewController.swift in Sources */,
 				980F18991F7B9589005984C5 /* Landing+Constants.swift in Sources */,
 				980F18A21F7BBC59005984C5 /* WebViewController.swift in Sources */,
 			);

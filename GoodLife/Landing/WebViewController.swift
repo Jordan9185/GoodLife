@@ -62,11 +62,27 @@ class WebViewController: UIViewController, WKNavigationDelegate {
                     
                     UserDefaults.standard.synchronize()
                     
+                    self.moveToProductMainPage()
+                    
                 }
                 
             }
             
         }.resume()
+        
+    }
+    
+    func moveToProductMainPage() {
+        
+        let storyBoard = UIStoryboard(name: "Product", bundle: nil)
+        
+        let productMainNavigationController = storyBoard.instantiateViewController(withIdentifier: "productMainNavigationController")
+        
+        let appDelete = UIApplication.shared.delegate as! AppDelegate
+        
+        DispatchQueue.main.async {
+            appDelete.window?.rootViewController = productMainNavigationController
+        }
         
     }
     
