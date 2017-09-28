@@ -8,43 +8,9 @@
 
 import Foundation
 
-//{
-//    "id": 876211,
-//    "company_name": "17Life",
-//    "title": "尊爵天際大飯店─翼 日本料理-鮭魚卵主題豪華套餐",
-//    "sales_count": 912,
-//    "price": 880,
-//    "store_name": "尊爵天際大飯店─翼 日本料理",
-//    "content": "尊爵天際大飯店─翼 日本料理-鮭魚卵主題豪華套餐",
-//    "link": "http://buy.igoodtravel.com/go/876211/bt?via=app",
-//    "image": "https://s3-dev.goodlife.tw/system/bt/000/876/211/images/mobile_1506314192.jpg",
-//    "image_small": "https://s3-dev.goodlife.tw/system/bt/000/876/211/images/mobile_small_1506314192.jpg",
-//    "image_original": "https://s3-dev.goodlife.tw/system/bt/000/876/211/images/1506314192.jpg",
-//    "addresses": [
-//    {
-//    "address": {
-//    "address": "桃園市蘆竹區南崁路1段108號",
-//    "lat": "25.05197",
-//    "lng": "121.28819"
-//    }
-//    }
-//    ]
-//}
-
-struct Product {
+protocol ProductManagerDelegate: class {
     
-    let id: Int
-    let companyName: String
-    let title: String
-    let salesCount: Int
-    let price: Int
-    let storeName: String
-    let content: String
-    let link: String
-    let imageURLString: String
-    let imageSmallURLString: String
-    let imageOriginURLString: String
-    let addresses: [String:[String:String]]
+    func didGetProductList(_ manager:ProductManager, didGet products:[Product])
     
 }
 
@@ -52,15 +18,7 @@ class ProductManager {
     
     static let shared = ProductManager()
     
-//    GET http://api.igoodtravel.com/buy/topics
-//
-//    url params:
-//    api_version=2
-//    key=[API key]
-//    type_simplified_id=1
-//    page=[page]
-//
-//    response: JSON array
+    weak var delegate: ProductManagerDelegate?
     
     func getProductList(page: Int) -> [Product] {
         
@@ -88,7 +46,102 @@ class ProductManager {
             
             if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
                 
-                print(json)
+                if let datas = json as? [[String:Any]] {
+                    
+                    datas.forEach({ (data) in
+                        
+                        guard let id = data["id"] as? Int else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let companyName = data["company_name"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let title = data["title"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let salesCount = data["sales_count"] as? Int else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let price = data["price"] as? Int else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let storeName = data["store_name"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let content = data["content"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let link = data["link"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let imageURLString = data["image"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let imageSmallURLString = data["image_small"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let imageOriginURLString = data["image_original"] as? String else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        guard let addresses = data["addresses"] as? [[String:Any]] else {
+                            
+                            //error handling
+                            return
+                        }
+                        
+                        products.append(
+                            Product(id: id,
+                                    companyName: companyName,
+                                    title: title,
+                                    salesCount: salesCount,
+                                    price: price,
+                                    storeName: storeName,
+                                    content: content,
+                                    link: link,
+                                    imageURLString: imageURLString,
+                                    imageSmallURLString: imageSmallURLString,
+                                    imageOriginURLString: imageOriginURLString,
+                                    addresses: addresses)
+                        )
+                        
+                    })
+
+                    self.delegate?.didGetProductList(self, didGet: products)
+                    
+                }
                 
             }
             
