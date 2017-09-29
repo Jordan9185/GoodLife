@@ -27,17 +27,15 @@ class ProductMainCollectionViewController: UICollectionViewController {
 
         productManager.delegate = self
         
-        productManager.getProductList(page: 0)
-
-        productManager.getSingleProduct(productId: 872259)
-        
-        //productManager.getFavoriteProductList(page: 0)
-        
-        //productManager.addProductIntoFavoriteList(productId: 872259)
-        
-        //productManager.removeProductFromFavoriteList(productId: 872259)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        productManager.getProductList(page: 0)
+        
+    }
+    
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,7 +84,6 @@ extension ProductMainCollectionViewController: ProductManagerDelegate {
     func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
         
         print(product)
-        
     }
     
     func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product]) {

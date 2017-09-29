@@ -1,14 +1,14 @@
 //
-//  ProductCollectionViewCell.swift
+//  FavoriteCollectionViewCell.swift
 //  GoodLife
 //
-//  Created by JordanLin on 2017/9/28.
+//  Created by JordanLin on 2017/9/29.
 //  Copyright © 2017年 JordanLin. All rights reserved.
 //
 
 import UIKit
 
-class ProductCollectionViewCell: UICollectionViewCell {
+class FavoriteCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var productImageView: UIImageView!
     

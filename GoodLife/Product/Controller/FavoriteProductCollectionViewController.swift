@@ -1,16 +1,14 @@
 //
-//  ProductMainCollectionViewController.swift
+//  FavoriteProductCollectionViewController.swift
 //  GoodLife
 //
-//  Created by JordanLin on 2017/9/28.
+//  Created by JordanLin on 2017/9/29.
 //  Copyright © 2017年 JordanLin. All rights reserved.
 //
 
 import UIKit
 
-import SDWebImage
-
-class ProductMainCollectionViewController: UICollectionViewController {
+class FavoriteProductCollectionViewController: UICollectionViewController {
 
     let productManager = ProductManager()
     
@@ -27,42 +25,42 @@ class ProductMainCollectionViewController: UICollectionViewController {
 
         productManager.delegate = self
         
-        productManager.getProductList(page: 0)
-
-        productManager.getSingleProduct(productId: 872259)
-        
-        //productManager.getFavoriteProductList(page: 0)
-        
-        //productManager.addProductIntoFavoriteList(productId: 872259)
-        
-        //productManager.removeProductFromFavoriteList(productId: 872259)
     }
 
-    // MARK: UICollectionViewDataSource
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        productManager.getFavoriteProductList(page: 0)
+        
+    }
     
+    // MARK: UICollectionViewDataSource
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return products.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as! FavoriteCollectionViewCell
     
         cell.productImageView.sd_setImage(with: URL(string: products[indexPath.row].imageOriginURLString))
         
         cell.titleLabel.text = products[indexPath.row].title
-    
-        cell.priceLabel.text = "$ " + String(products[indexPath.row].price)
         
+        cell.priceLabel.text = "$ " + String(products[indexPath.row].price)
+    
         return cell
     }
 
 }
 
-extension ProductMainCollectionViewController: ProductManagerDelegate {
+
+extension FavoriteProductCollectionViewController: ProductManagerDelegate {
     
     func didGetProductList(_ manager:ProductManager, didGet products:[Product]) {
         
-        self.products = products
+        print(products)
     }
     
     func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
@@ -73,7 +71,8 @@ extension ProductMainCollectionViewController: ProductManagerDelegate {
     
     func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product]) {
         
-        print(products)
+        self.products = products
+        
     }
     
     func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {

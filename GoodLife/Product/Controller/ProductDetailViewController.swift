@@ -33,6 +33,10 @@ class ProductDetailViewController: UIViewController {
         
     }
 
+    @IBAction func addToNoteButtonTapped(_ sender: UIButton) {
+        
+        productManager.addProductIntoFavoriteList(productId: productID!)
+    }
 }
 
 extension ProductDetailViewController: ProductManagerDelegate {
