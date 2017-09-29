@@ -12,6 +12,13 @@ protocol ProductManagerDelegate: class {
     
     func didGetProductList(_ manager:ProductManager, didGet products:[Product])
     
+    func didGetSingleProduct(_ manager:ProductManager, didGet product:Product)
+    
+    func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product])
+    
+    func addedFavoriteItem(_ manager:ProductManager, didGet message:String)
+    
+    func removedFavoriteItem(_ manager:ProductManager, didGet message:String)
 }
 
 class ProductManager {
@@ -20,15 +27,15 @@ class ProductManager {
     
     weak var delegate: ProductManagerDelegate?
     
-    func getProductList(page: Int) -> [Product] {
+    let apiVersion = 2
+    
+    let typeSimplifiedId = 1
+    
+    let testAPI = "ad7c2d5ffa8f06d46b895dafbd409562"
+    
+    func getProductList(page: Int) {
         
         var products: [Product] = []
-        
-        let apiVersion = 2
-        
-        let typeSimplifiedId = 1
-        
-        let testAPI = "ad7c2d5ffa8f06d46b895dafbd409562"
         
         let urlString = "\(productListURLString)?api_version=\(apiVersion)&key=\(testAPI)&type_simplified_id=\(typeSimplifiedId)&page=\(page)"
         
@@ -50,91 +57,8 @@ class ProductManager {
                     
                     datas.forEach({ (data) in
                         
-                        guard let id = data["id"] as? Int else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let companyName = data["company_name"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let title = data["title"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let salesCount = data["sales_count"] as? Int else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let price = data["price"] as? Int else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let storeName = data["store_name"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let content = data["content"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let link = data["link"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let imageURLString = data["image"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let imageSmallURLString = data["image_small"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let imageOriginURLString = data["image_original"] as? String else {
-                            
-                            //error handling
-                            return
-                        }
-                        
-                        guard let addresses = data["addresses"] as? [[String:Any]] else {
-                            
-                            //error handling
-                            return
-                        }
-                        
                         products.append(
-                            Product(id: id,
-                                    companyName: companyName,
-                                    title: title,
-                                    salesCount: salesCount,
-                                    price: price,
-                                    storeName: storeName,
-                                    content: content,
-                                    link: link,
-                                    imageURLString: imageURLString,
-                                    imageSmallURLString: imageSmallURLString,
-                                    imageOriginURLString: imageOriginURLString,
-                                    addresses: addresses)
+                            try! Product(dataDictionary: data)
                         )
                         
                     })
@@ -147,30 +71,159 @@ class ProductManager {
             
         }.resume()
         
-        return products
     }
     
-//    func getSingleProduct(productId: Int) -> Product {
-//        var product = Product
-//
-//        return product
-//    }
-//
-    func getFavoriteProductList(page: Int) -> [Product] {
+    func getSingleProduct(productId: Int){
+        
+        let urlString = "\(productListURLString)/\(productId)?api_version=\(apiVersion)&key=\(testAPI)"
+        
+        let url = URL(string: urlString)
+        
+        let request = URLRequest(url: url!)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                
+                //error handling
+                
+                return
+            }
+            
+            if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
+                
+                if let data = json as? [String:Any] {
+                    
+                    let product = try! Product(dataDictionary: data)
+
+                    self.delegate?.didGetSingleProduct(self, didGet: product)
+                    
+                }
+                
+            }
+            
+            }.resume()
+
+    }
+
+    func getFavoriteProductList(page: Int) {
+        
         var products: [Product] = []
         
-        return products
+        let urlString = "\(favoriteListURLString)/index_of_topic?api_version=\(apiVersion)&key=\(testAPI)&page=\(page)"
+        
+        let url = URL(string: urlString)
+        
+        var request = URLRequest(url: url!)
+        
+        let token = UserDefaults.standard.object(forKey: "accessToken") as! String
+        
+        request.allHTTPHeaderFields = ["Authorization": "Bearer \(token)"]
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                
+                //error handling
+                
+                return
+            }
+            
+            if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
+                
+                if let datas = json as? [[String:Any]] {
+                    
+                    datas.forEach({ (data) in
+                        
+                        products.append(
+                            try! Product(dataDictionary: data)
+                        )
+                        
+                    })
+                    
+                    self.delegate?.didGetFavoriteList(self, didGet: products)
+                    
+                }
+                
+            }
+            
+            }.resume()
     }
     
-    func addProductIntoFavoriteList(productId: Int) -> Int {
-        var statusCode = 200
+    func addProductIntoFavoriteList(productId: Int) {
         
-        return statusCode
+        let urlString = "\(favoriteListURLString)?topic_id=\(productId)&key=\(testAPI)"
+        
+        let url = URL(string: urlString)
+        
+        var request = URLRequest(url: url!)
+        
+        let token = UserDefaults.standard.object(forKey: "accessToken") as! String
+
+        request.httpMethod = "POST"
+        
+        request.allHTTPHeaderFields = ["Authorization": "Bearer \(token)"]
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                
+                //error handling
+                
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                
+                switch httpResponse.statusCode {
+                    
+                case 200:
+                    self.delegate?.addedFavoriteItem(self, didGet: "Item already exist.")
+                case 201:
+                    self.delegate?.addedFavoriteItem(self, didGet: "Item added successfully")
+                default:
+                    break
+                }
+                
+            }
+
+        }.resume()
+
     }
     
-    func removeProductFromFavoriteList(productId: Int) -> Int {
-        var statusCode = 200
+    func removeProductFromFavoriteList(productId: Int) {
         
-        return statusCode
+        let urlString = "\(favoriteListURLString)?topic_id=\(productId)&key=\(testAPI)"
+        
+        let url = URL(string: urlString)
+        
+        var request = URLRequest(url: url!)
+        
+        let token = UserDefaults.standard.object(forKey: "accessToken") as! String
+        
+        request.httpMethod = "DELETE"
+        
+        request.allHTTPHeaderFields = ["Authorization": "Bearer \(token)"]
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                
+                //error handling
+                
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                
+                switch httpResponse.statusCode {
+                    
+                case 200:
+                    self.delegate?.removedFavoriteItem(self, didGet: "Item removed successfully")
+                    
+                default:
+                    break
+                }
+                
+            }
+            
+            }.resume()
+
     }
 }

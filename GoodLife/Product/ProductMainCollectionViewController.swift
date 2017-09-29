@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+import SDWebImage
 
 class ProductMainCollectionViewController: UICollectionViewController {
 
@@ -29,6 +29,13 @@ class ProductMainCollectionViewController: UICollectionViewController {
         
         productManager.getProductList(page: 0)
 
+        productManager.getSingleProduct(productId: 872259)
+        
+        //productManager.getFavoriteProductList(page: 0)
+        
+        //productManager.addProductIntoFavoriteList(productId: 872259)
+        
+        //productManager.removeProductFromFavoriteList(productId: 872259)
     }
 
     // MARK: UICollectionViewDataSource
@@ -40,6 +47,8 @@ class ProductMainCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
     
+        cell.productImageView.sd_setImage(with: URL(string: products[indexPath.row].imageOriginURLString))
+        
         cell.titleLabel.text = products[indexPath.row].title
     
         return cell
@@ -51,11 +60,25 @@ extension ProductMainCollectionViewController: ProductManagerDelegate {
     
     func didGetProductList(_ manager:ProductManager, didGet products:[Product]) {
         
-        print(products)
-        
-        print("count: ", products.count)
-        
         self.products = products
     }
     
+    func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
+        
+        print(product)
+        
+    }
+    
+    func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product]) {
+        
+        print(products)
+    }
+    
+    func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {
+        print(message)
+    }
+    
+    func removedFavoriteItem(_ manager: ProductManager, didGet message: String) {
+        print(message)
+    }
 }
