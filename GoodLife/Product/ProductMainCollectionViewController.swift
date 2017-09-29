@@ -51,6 +51,8 @@ class ProductMainCollectionViewController: UICollectionViewController {
         
         cell.titleLabel.text = products[indexPath.row].title
     
+        cell.priceLabel.text = "$ " + String(products[indexPath.row].price)
+        
         return cell
     }
 

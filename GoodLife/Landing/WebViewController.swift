@@ -76,12 +76,12 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         
         let storyBoard = UIStoryboard(name: "Product", bundle: nil)
         
-        let productMainNavigationController = storyBoard.instantiateViewController(withIdentifier: "productMainNavigationController")
+        let productTabBarController = storyBoard.instantiateViewController(withIdentifier: "productTabBarController")
         
         let appDelete = UIApplication.shared.delegate as! AppDelegate
         
         DispatchQueue.main.async {
-            appDelete.window?.rootViewController = productMainNavigationController
+            appDelete.window?.rootViewController = productTabBarController
         }
         
     }

@@ -13,4 +13,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productImageView: UIImageView!
     
     @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var priceLabel: UILabel!
 }
