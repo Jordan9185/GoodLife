@@ -17,6 +17,7 @@
 		980F18B11F7C9AD0005984C5 /* ProductMainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */; };
 		9891AC2A1F7CED4800C4FD4C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891AC291F7CED4800C4FD4C /* Product.swift */; };
 		9891AC2E1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891AC2D1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift */; };
+		98C6DEA01F7E39560019816F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6DE9F1F7E39560019816F /* ProductDetailViewController.swift */; };
 		98E9EE7B1F7B8EF70002C412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9EE7A1F7B8EF70002C412 /* AppDelegate.swift */; };
 		98E9EE821F7B8EF70002C412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9EE811F7B8EF70002C412 /* Assets.xcassets */; };
 		98E9EE851F7B8EF70002C412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E9EE831F7B8EF70002C412 /* LaunchScreen.storyboard */; };
@@ -37,6 +38,7 @@
 		980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMainCollectionViewController.swift; sourceTree = "<group>"; };
 		9891AC291F7CED4800C4FD4C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		9891AC2D1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		98C6DE9F1F7E39560019816F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		98E9EE771F7B8EF70002C412 /* GoodLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E9EE7A1F7B8EF70002C412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E9EE811F7B8EF70002C412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,15 +80,40 @@
 		980F18A31F7BE450005984C5 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				980F18AE1F7C97C2005984C5 /* APIKey.swift */,
 				980F18A81F7BE5B1005984C5 /* Product.storyboard */,
-				980F18AA1F7C91A3005984C5 /* ProductManager.swift */,
+				980F18AE1F7C97C2005984C5 /* APIKey.swift */,
 				980F18AC1F7C969D005984C5 /* Product+Constants.swift */,
-				980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */,
-				9891AC291F7CED4800C4FD4C /* Product.swift */,
-				9891AC2D1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift */,
+				98C6DEA11F7E3F6C0019816F /* Model */,
+				98C6DEA31F7E3FAB0019816F /* View */,
+				98C6DEA21F7E3F840019816F /* Controller */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		98C6DEA11F7E3F6C0019816F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9891AC291F7CED4800C4FD4C /* Product.swift */,
+				980F18AA1F7C91A3005984C5 /* ProductManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		98C6DEA21F7E3F840019816F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */,
+				98C6DE9F1F7E39560019816F /* ProductDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		98C6DEA31F7E3FAB0019816F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9891AC2D1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		98E9EE6E1F7B8EF70002C412 = {
@@ -286,6 +313,7 @@
 				980F18AD1F7C969D005984C5 /* Product+Constants.swift in Sources */,
 				980F18AB1F7C91A3005984C5 /* ProductManager.swift in Sources */,
 				98E9EE7B1F7B8EF70002C412 /* AppDelegate.swift in Sources */,
+				98C6DEA01F7E39560019816F /* ProductDetailViewController.swift in Sources */,
 				980F18B11F7C9AD0005984C5 /* ProductMainCollectionViewController.swift in Sources */,
 				980F18991F7B9589005984C5 /* Landing+Constants.swift in Sources */,
 				980F18A21F7BBC59005984C5 /* WebViewController.swift in Sources */,
