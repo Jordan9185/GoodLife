@@ -36,6 +36,20 @@ class ProductMainCollectionViewController: UICollectionViewController {
         
     }
     
+    @IBAction func signOutButtonTapped(_ sender: UIBarButtonItem) {
+        
+        UserDefaults.standard.removeObject(forKey: "accessToken")
+        
+        let landingStoryBoard = UIStoryboard(name: "Landing", bundle: nil)
+        
+        let landingViewController = landingStoryBoard.instantiateViewController(withIdentifier: "LandingNavigationController")
+        
+        DispatchQueue.main.async {
+            AppDelegate.shared.window?.rootViewController = landingViewController
+        }
+        
+    }
+    
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

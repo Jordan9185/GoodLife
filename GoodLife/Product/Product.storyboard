@@ -83,7 +83,13 @@
                             <outlet property="delegate" destination="1eV-3G-q0w" id="Mgq-31-BE0"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Product List" id="918-M1-ghs"/>
+                    <navigationItem key="navigationItem" title="Product List" id="918-M1-ghs">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="JzM-ob-YRC">
+                            <connections>
+                                <action selector="signOutButtonTapped:" destination="1eV-3G-q0w" id="0TQ-OD-bzh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dc-TF-Oby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -365,6 +371,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YjR-uW-7XX"/>
+        <segue reference="E28-7J-XPK"/>
     </inferredMetricsTieBreakers>
 </document>
