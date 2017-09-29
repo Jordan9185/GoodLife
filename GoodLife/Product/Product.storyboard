@@ -329,6 +329,7 @@
                                     <outlet property="priceLabel" destination="PcC-7b-YZR" id="OXE-HY-Qm3"/>
                                     <outlet property="productImageView" destination="sae-c7-xt9" id="MyD-k5-C42"/>
                                     <outlet property="titleLabel" destination="fL4-cW-FJU" id="34m-zD-KmY"/>
+                                    <segue destination="Osv-nQ-CfY" kind="show" identifier="toNoteDetail" id="YjR-uW-7XX"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -363,4 +364,7 @@
             <point key="canvasLocation" x="-585" y="940"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YjR-uW-7XX"/>
+    </inferredMetricsTieBreakers>
 </document>

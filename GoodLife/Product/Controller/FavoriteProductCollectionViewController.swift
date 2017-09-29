@@ -50,9 +50,27 @@ class FavoriteProductCollectionViewController: UICollectionViewController {
         
         cell.priceLabel.text = "$ " + String(products[indexPath.row].price)
     
+        cell.tag = products[indexPath.row].id
+        
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "toNoteDetail":
+            
+            let cell = sender as! FavoriteCollectionViewCell
+            
+            let productID = cell.tag
+            
+            let productDetailViewController = segue.destination as! ProductDetailViewController
+            
+            productDetailViewController.productID = productID
+            
+        default:
+            break
+        }
+    }
 }
 
 
