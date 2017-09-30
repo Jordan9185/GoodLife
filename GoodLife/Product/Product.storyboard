@@ -144,7 +144,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sales_count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h81-yR-eYO">
-                                                        <rect key="frame" x="8" y="134" width="241" height="30"/>
+                                                        <rect key="frame" x="8" y="134" width="150" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Q9E-M2-Luy"/>
                                                         </constraints>
@@ -153,8 +153,8 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmh-Xw-XWo">
-                                                        <rect key="frame" x="259" y="134" width="108" height="30"/>
-                                                        <state key="normal" title="Add to Note "/>
+                                                        <rect key="frame" x="191" y="134" width="176" height="30"/>
+                                                        <state key="normal" title="title"/>
                                                         <connections>
                                                             <action selector="addToNoteButtonTapped:" destination="Osv-nQ-CfY" eventType="touchUpInside" id="ZuV-7D-aK8"/>
                                                         </connections>
@@ -178,11 +178,11 @@
                                                     <constraint firstItem="RdW-dP-x8S" firstAttribute="leading" secondItem="8cP-j4-sTG" secondAttribute="leading" constant="8" id="Gso-Qj-Vbc"/>
                                                     <constraint firstItem="cmh-Xw-XWo" firstAttribute="top" secondItem="8cP-j4-sTG" secondAttribute="top" constant="134" id="HRH-0g-zLK"/>
                                                     <constraint firstAttribute="trailing" secondItem="7oP-3E-fi2" secondAttribute="trailing" constant="8" id="PaA-0K-knb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="h81-yR-eYO" secondAttribute="trailing" constant="126" id="SgZ-N2-pjU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="h81-yR-eYO" secondAttribute="trailing" constant="217" id="SgZ-N2-pjU"/>
                                                     <constraint firstItem="h81-yR-eYO" firstAttribute="top" secondItem="8cP-j4-sTG" secondAttribute="top" constant="134" id="UHS-uz-75O"/>
                                                     <constraint firstItem="h81-yR-eYO" firstAttribute="leading" secondItem="8cP-j4-sTG" secondAttribute="leading" constant="8" id="UfI-W4-EVF"/>
                                                     <constraint firstAttribute="trailing" secondItem="cmh-Xw-XWo" secondAttribute="trailing" constant="8" id="VSN-zO-z4U"/>
-                                                    <constraint firstItem="cmh-Xw-XWo" firstAttribute="leading" secondItem="h81-yR-eYO" secondAttribute="trailing" constant="10" id="g4M-Bs-qaG"/>
+                                                    <constraint firstItem="cmh-Xw-XWo" firstAttribute="leading" secondItem="h81-yR-eYO" secondAttribute="trailing" constant="33" id="g4M-Bs-qaG"/>
                                                     <constraint firstItem="n66-cI-00J" firstAttribute="top" secondItem="8cP-j4-sTG" secondAttribute="top" id="n8k-FN-Py6"/>
                                                     <constraint firstItem="RdW-dP-x8S" firstAttribute="top" secondItem="8cP-j4-sTG" secondAttribute="top" constant="172" id="p6R-yH-qUA"/>
                                                     <constraint firstItem="n66-cI-00J" firstAttribute="leading" secondItem="8cP-j4-sTG" secondAttribute="leading" constant="8" id="w6T-n1-IIu"/>
@@ -223,6 +223,7 @@
                     </view>
                     <connections>
                         <outlet property="contentLabel" destination="RdW-dP-x8S" id="7Tx-SG-Yea"/>
+                        <outlet property="noteButton" destination="cmh-Xw-XWo" id="xUA-pM-Z3l"/>
                         <outlet property="productImageView" destination="aND-Z2-w3U" id="QJo-GD-UxW"/>
                         <outlet property="salesCountLabel" destination="h81-yR-eYO" id="h3V-Mk-LOe"/>
                         <outlet property="storeNameLabel" destination="7oP-3E-fi2" id="rig-OU-2mD"/>

@@ -8,9 +8,35 @@
 
 import UIKit
 
+enum DetailMode {
+    
+    case normal, note
+    
+}
+
+enum ButtonTitle {
+    
+    case addedToNote, removedFromNote
+    
+    var string: String {
+        
+        switch self {
+            
+        case .addedToNote:
+            return "Add to note"
+
+        case .removedFromNote:
+            return "Remove from Note"
+            
+        }
+    }
+}
+
 class ProductDetailViewController: UIViewController {
 
     var productID: Int?
+    
+    var mode: DetailMode = .normal
     
     let productManager = ProductManager()
     
@@ -24,6 +50,8 @@ class ProductDetailViewController: UIViewController {
     
     @IBOutlet var contentLabel: UILabel!
     
+    @IBOutlet var noteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,11 +59,43 @@ class ProductDetailViewController: UIViewController {
         
         productManager.getSingleProduct(productId: productID!)
         
+        setUpNoteButton()
+        
     }
 
+    func setUpNoteButton() {
+        
+        noteButton.titleLabel?.textColor = .blue
+        switch mode {
+            
+        case .normal:
+            noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
+            
+        case .note:
+            noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
+            
+        }
+        
+    }
+    
     @IBAction func addToNoteButtonTapped(_ sender: UIButton) {
         
-        productManager.addProductIntoFavoriteList(productId: productID!)
+        let title = (sender.titleLabel?.text)!
+        
+        switch title {
+
+        case ButtonTitle.addedToNote.string:
+            noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
+            productManager.addProductIntoFavoriteList(productId: productID!)
+
+        case ButtonTitle.removedFromNote.string:
+            noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
+            productManager.removeProductFromFavoriteList(productId: productID!)
+
+        default:
+            break
+            
+        }
     }
 }
 
@@ -70,11 +130,28 @@ extension ProductDetailViewController: ProductManagerDelegate {
     }
     
     func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        print(message)
+        
+        let alertController = UIAlertController(title: "Note list", message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(action)
+        
+        present(alertController, animated: true, completion: nil)
+        
+        noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
     }
     
     func removedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        print(message)
+        let alertController = UIAlertController(title: "Note list", message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(action)
+        
+        present(alertController, animated: true, completion: nil)
+        
+        noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
     }
 }
 

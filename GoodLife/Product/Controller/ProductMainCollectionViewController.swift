@@ -82,6 +82,8 @@ class ProductMainCollectionViewController: UICollectionViewController {
             
             productDetailViewController.productID = productID
             
+            productDetailViewController.mode = .normal
+            
         default:
             break
         }

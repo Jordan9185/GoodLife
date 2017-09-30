@@ -67,6 +67,8 @@ class FavoriteProductCollectionViewController: UICollectionViewController {
             
             productDetailViewController.productID = productID
             
+            productDetailViewController.mode = .note
+            
         default:
             break
         }

@@ -177,7 +177,7 @@ class ProductManager {
                 case 200:
                     self.delegate?.addedFavoriteItem(self, didGet: "Item already exist.")
                 case 201:
-                    self.delegate?.addedFavoriteItem(self, didGet: "Item added successfully")
+                    self.delegate?.addedFavoriteItem(self, didGet: "Item added successfully.")
                 default:
                     break
                 }
@@ -215,7 +215,7 @@ class ProductManager {
                 switch httpResponse.statusCode {
                     
                 case 200:
-                    self.delegate?.removedFavoriteItem(self, didGet: "Item removed successfully")
+                    self.delegate?.removedFavoriteItem(self, didGet: "Item removed successfully.")
                     
                 default:
                     break
