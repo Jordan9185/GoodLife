@@ -7,5 +7,5 @@ target 'GoodLife' do
 
   # Pods for GoodLife
   pod 'SDWebImage', '~> 4.0'
-
+  pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
 end

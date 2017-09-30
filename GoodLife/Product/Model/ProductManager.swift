@@ -57,9 +57,9 @@ class ProductManager {
                     
                     datas.forEach({ (data) in
                         
-                        products.append(
-                            try! Product(dataDictionary: data)
-                        )
+                        if let product = try? Product(dataDictionary: data) {
+                            products.append(product)
+                        }
                         
                     })
 

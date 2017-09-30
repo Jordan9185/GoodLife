@@ -10,9 +10,13 @@ import UIKit
 
 import SDWebImage
 
+import UIScrollView_InfiniteScroll
+
 class ProductMainCollectionViewController: UICollectionViewController {
 
     let productManager = ProductManager()
+    
+    var page: Int = 1
     
     var products = [Product]() {
         didSet {
@@ -27,12 +31,25 @@ class ProductMainCollectionViewController: UICollectionViewController {
 
         productManager.delegate = self
         
+        collectionView!.addInfiniteScroll { (collectionView) in
+            
+            collectionView.performBatchUpdates({
+                
+                self.page += 1
+                
+                self.productManager.getProductList(page: self.page)
+                
+            }, completion: { finished in
+                collectionView.finishInfiniteScroll()
+            })
+        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        productManager.getProductList(page: 0)
+        productManager.getProductList(page: page)
         
     }
     
@@ -94,7 +111,7 @@ extension ProductMainCollectionViewController: ProductManagerDelegate {
     
     func didGetProductList(_ manager:ProductManager, didGet products:[Product]) {
         
-        self.products = products
+        self.products += products
     }
     
     func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
