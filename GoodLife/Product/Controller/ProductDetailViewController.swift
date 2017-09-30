@@ -69,10 +69,10 @@ class ProductDetailViewController: UIViewController {
         switch mode {
             
         case .normal:
-            noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
+            noteButton.setImage(#imageLiteral(resourceName: "favorite"), for: .normal)
             
         case .note:
-            noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
+            noteButton.setImage(#imageLiteral(resourceName: "favorite-selected"), for: .normal)
             
         }
         
@@ -80,17 +80,17 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func addToNoteButtonTapped(_ sender: UIButton) {
         
-        let title = (sender.titleLabel?.text)!
+        let image = (sender.imageView?.image)!
         
-        switch title {
+        switch image {
 
-        case ButtonTitle.addedToNote.string:
-            noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
-            productManager.addProductIntoFavoriteList(productId: productID!)
-
-        case ButtonTitle.removedFromNote.string:
-            noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
+        case #imageLiteral(resourceName: "favorite-selected"):
+            noteButton.setImage(#imageLiteral(resourceName: "favorite"), for: .normal)
             productManager.removeProductFromFavoriteList(productId: productID!)
+
+        case #imageLiteral(resourceName: "favorite"):
+            noteButton.setImage(#imageLiteral(resourceName: "favorite-selected"), for: .normal)
+            productManager.addProductIntoFavoriteList(productId: productID!)
 
         default:
             break
@@ -131,27 +131,27 @@ extension ProductDetailViewController: ProductManagerDelegate {
     
     func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {
         
-        let alertController = UIAlertController(title: "Note list", message: message, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        
-        alertController.addAction(action)
-        
-        present(alertController, animated: true, completion: nil)
-        
-        noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
+//        let alertController = UIAlertController(title: "Note list", message: message, preferredStyle: .alert)
+//
+//        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+//
+//        alertController.addAction(action)
+//
+//        present(alertController, animated: true, completion: nil)
+//
+//        noteButton.setTitle(ButtonTitle.removedFromNote.string, for: .normal)
     }
     
     func removedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        let alertController = UIAlertController(title: "Note list", message: message, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        
-        alertController.addAction(action)
-        
-        present(alertController, animated: true, completion: nil)
-        
-        noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
+//        let alertController = UIAlertController(title: "Note list", message: message, preferredStyle: .alert)
+//        
+//        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        
+//        alertController.addAction(action)
+//        
+//        present(alertController, animated: true, completion: nil)
+//        
+//        noteButton.setTitle(ButtonTitle.addedToNote.string, for: .normal)
     }
 }
 

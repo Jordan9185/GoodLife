@@ -47,6 +47,8 @@ class FavoriteProductCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        products = []
+        
         productManager.getFavoriteProductList(page: page)
         
     }

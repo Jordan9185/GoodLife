@@ -49,6 +49,8 @@ class ProductMainCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        products = []
+        
         productManager.getProductList(page: page)
         
     }
