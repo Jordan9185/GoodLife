@@ -180,9 +180,9 @@
 		98E9EE901F7B907C0002C412 /* Landing */ = {
 			isa = PBXGroup;
 			children = (
+				980F18961F7B9376005984C5 /* Landing.storyboard */,
 				98E9EE911F7B90BB0002C412 /* LandingViewController.swift */,
 				980F18981F7B9589005984C5 /* Landing+Constants.swift */,
-				980F18961F7B9376005984C5 /* Landing.storyboard */,
 				980F18A11F7BBC59005984C5 /* WebViewController.swift */,
 			);
 			path = Landing;
