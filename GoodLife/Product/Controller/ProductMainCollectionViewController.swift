@@ -55,15 +55,29 @@ class ProductMainCollectionViewController: UICollectionViewController {
     
     @IBAction func signOutButtonTapped(_ sender: UIBarButtonItem) {
         
-        UserDefaults.standard.removeObject(forKey: "accessToken")
+        let alertController = UIAlertController(title: "Sign Out", message: "Are you sure?", preferredStyle: .alert)
         
-        let landingStoryBoard = UIStoryboard(name: "Landing", bundle: nil)
-        
-        let landingViewController = landingStoryBoard.instantiateViewController(withIdentifier: "LandingNavigationController")
-        
-        DispatchQueue.main.async {
-            AppDelegate.shared.window?.rootViewController = landingViewController
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            
+            UserDefaults.standard.removeObject(forKey: "accessToken")
+            
+            let landingStoryBoard = UIStoryboard(name: "Landing", bundle: nil)
+            
+            let landingViewController = landingStoryBoard.instantiateViewController(withIdentifier: "LandingNavigationController")
+            
+            DispatchQueue.main.async {
+                AppDelegate.shared.window?.rootViewController = landingViewController
+            }
+            
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
         
     }
     
