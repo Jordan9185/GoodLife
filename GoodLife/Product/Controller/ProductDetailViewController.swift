@@ -103,7 +103,7 @@ extension ProductDetailViewController: ProductManagerDelegate {
     
     func didGetProductList(_ manager:ProductManager, didGet products:[Product]) {
         
-        print(products)
+        //print(products)
     }
     
     func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
@@ -126,7 +126,7 @@ extension ProductDetailViewController: ProductManagerDelegate {
     
     func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product]) {
         
-        print(products)
+        //print(products)
     }
     
     func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {

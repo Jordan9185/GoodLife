@@ -8,9 +8,13 @@
 
 import UIKit
 
+import UIScrollView_InfiniteScroll
+
 class FavoriteProductCollectionViewController: UICollectionViewController {
 
     let productManager = ProductManager()
+    
+    var page: Int = 1
     
     var products = [Product]() {
         didSet {
@@ -25,12 +29,25 @@ class FavoriteProductCollectionViewController: UICollectionViewController {
 
         productManager.delegate = self
         
+        collectionView!.addInfiniteScroll { (collectionView) in
+            
+            collectionView.performBatchUpdates({
+                
+                self.page += 1
+                
+                self.productManager.getProductList(page: self.page)
+                
+            }, completion: { finished in
+                collectionView.finishInfiniteScroll()
+            })
+        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        productManager.getFavoriteProductList(page: 0)
+        productManager.getFavoriteProductList(page: page)
         
     }
     
@@ -80,26 +97,26 @@ extension FavoriteProductCollectionViewController: ProductManagerDelegate {
     
     func didGetProductList(_ manager:ProductManager, didGet products:[Product]) {
         
-        print(products)
+        //print(products)
     }
     
     func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
         
-        print(product)
+        //print(product)
         
     }
     
     func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product]) {
         
-        self.products = products
+        self.products += products
         
     }
     
     func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        print(message)
+        //print(message)
     }
     
     func removedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        print(message)
+        //print(message)
     }
 }

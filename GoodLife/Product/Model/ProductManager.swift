@@ -31,13 +31,11 @@ class ProductManager {
     
     let typeSimplifiedId = 1
     
-    let testAPI = "ad7c2d5ffa8f06d46b895dafbd409562"
-    
     func getProductList(page: Int) {
         
         var products: [Product] = []
         
-        let urlString = "\(productListURLString)?api_version=\(apiVersion)&key=\(testAPI)&type_simplified_id=\(typeSimplifiedId)&page=\(page)"
+        let urlString = "\(productListURLString)?api_version=\(apiVersion)&key=\(webAPIKey)&type_simplified_id=\(typeSimplifiedId)&page=\(page)"
         
         let url = URL(string: urlString)
         
@@ -75,7 +73,7 @@ class ProductManager {
     
     func getSingleProduct(productId: Int){
         
-        let urlString = "\(productListURLString)/\(productId)?api_version=\(apiVersion)&key=\(testAPI)"
+        let urlString = "\(productListURLString)/\(productId)?api_version=\(apiVersion)&key=\(webAPIKey)"
         
         let url = URL(string: urlString)
         
@@ -109,7 +107,7 @@ class ProductManager {
         
         var products: [Product] = []
         
-        let urlString = "\(favoriteListURLString)/index_of_topic?api_version=\(apiVersion)&key=\(testAPI)&page=\(page)"
+        let urlString = "\(favoriteListURLString)/index_of_topic?api_version=\(apiVersion)&key=\(webAPIKey)&page=\(page)"
         
         let url = URL(string: urlString)
         
@@ -150,7 +148,7 @@ class ProductManager {
     
     func addProductIntoFavoriteList(productId: Int) {
         
-        let urlString = "\(favoriteListURLString)?topic_id=\(productId)&key=\(testAPI)"
+        let urlString = "\(favoriteListURLString)?topic_id=\(productId)&key=\(webAPIKey)"
         
         let url = URL(string: urlString)
         
@@ -190,7 +188,7 @@ class ProductManager {
     
     func removeProductFromFavoriteList(productId: Int) {
         
-        let urlString = "\(favoriteListURLString)?topic_id=\(productId)&key=\(testAPI)"
+        let urlString = "\(favoriteListURLString)?topic_id=\(productId)&key=\(webAPIKey)"
         
         let url = URL(string: urlString)
         

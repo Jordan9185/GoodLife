@@ -116,19 +116,19 @@ extension ProductMainCollectionViewController: ProductManagerDelegate {
     
     func didGetSingleProduct(_ manager:ProductManager, didGet product:Product) {
         
-        print(product)
+        //print(product)
     }
     
     func didGetFavoriteList(_ manager:ProductManager, didGet products:[Product]) {
         
-        print(products)
+        //print(products)
     }
     
     func addedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        print(message)
+        //print(message)
     }
     
     func removedFavoriteItem(_ manager: ProductManager, didGet message: String) {
-        print(message)
+        //print(message)
     }
 }
