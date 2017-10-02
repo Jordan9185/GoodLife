@@ -92,8 +92,8 @@ class ProductMainCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
     
-        cell.productImageView.sd_setImage(with: URL(string: products[indexPath.row].imageOriginURLString))
-        
+        cell.productImageView.sd_setImage(with: URL(string: products[indexPath.row].imageOriginURLString),placeholderImage: #imageLiteral(resourceName: "productPlaceholder"))
+                
         cell.titleLabel.text = products[indexPath.row].title
     
         cell.priceLabel.text = "$ " + String(products[indexPath.row].price)
