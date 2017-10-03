@@ -8,9 +8,39 @@
 
 import Foundation
 
-let productListURLString = "http://api.igoodtravel.com/buy/topics"
+var productListURLString: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["ProductListURLString"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
 
-let favoriteListURLString = "http://api.igoodtravel.com/buy/notes"
+var favoriteListURLString: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["FavoriteListURLString"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
 
 var webAPIKey: String {
     
