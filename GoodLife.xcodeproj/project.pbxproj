@@ -13,10 +13,10 @@
 		980F18A91F7BE5B1005984C5 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980F18A81F7BE5B1005984C5 /* Product.storyboard */; };
 		980F18AB1F7C91A3005984C5 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18AA1F7C91A3005984C5 /* ProductManager.swift */; };
 		980F18AD1F7C969D005984C5 /* Product+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18AC1F7C969D005984C5 /* Product+Constants.swift */; };
-		980F18AF1F7C97C2005984C5 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18AE1F7C97C2005984C5 /* APIKey.swift */; };
 		980F18B11F7C9AD0005984C5 /* ProductMainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */; };
 		9891AC2A1F7CED4800C4FD4C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891AC291F7CED4800C4FD4C /* Product.swift */; };
 		9891AC2E1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891AC2D1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift */; };
+		98A40D6F1F8354B200BA82C8 /* GoodLife.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98A40D6E1F8354B200BA82C8 /* GoodLife.plist */; };
 		98C6DEA01F7E39560019816F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6DE9F1F7E39560019816F /* ProductDetailViewController.swift */; };
 		98C6DEA51F7E456A0019816F /* FavoriteProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6DEA41F7E456A0019816F /* FavoriteProductCollectionViewController.swift */; };
 		98C6DEA71F7E45E30019816F /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6DEA61F7E45E30019816F /* FavoriteCollectionViewCell.swift */; };
@@ -36,10 +36,10 @@
 		980F18A81F7BE5B1005984C5 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		980F18AA1F7C91A3005984C5 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		980F18AC1F7C969D005984C5 /* Product+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+Constants.swift"; sourceTree = "<group>"; };
-		980F18AE1F7C97C2005984C5 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		980F18B01F7C9AD0005984C5 /* ProductMainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMainCollectionViewController.swift; sourceTree = "<group>"; };
 		9891AC291F7CED4800C4FD4C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		9891AC2D1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		98A40D6E1F8354B200BA82C8 /* GoodLife.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GoodLife.plist; sourceTree = "<group>"; };
 		98C6DE9F1F7E39560019816F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		98C6DEA41F7E456A0019816F /* FavoriteProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductCollectionViewController.swift; sourceTree = "<group>"; };
 		98C6DEA61F7E45E30019816F /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -85,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				980F18A81F7BE5B1005984C5 /* Product.storyboard */,
-				980F18AE1F7C97C2005984C5 /* APIKey.swift */,
 				980F18AC1F7C969D005984C5 /* Product+Constants.swift */,
 				98C6DEA11F7E3F6C0019816F /* Model */,
 				98C6DEA31F7E3FAB0019816F /* View */,
@@ -149,6 +148,7 @@
 				98E9EE8D1F7B901F0002C412 /* LaunchScreen */,
 				98E9EE8E1F7B904C0002C412 /* Assets */,
 				98E9EE861F7B8EF70002C412 /* Info.plist */,
+				98A40D6E1F8354B200BA82C8 /* GoodLife.plist */,
 			);
 			path = GoodLife;
 			sourceTree = "<group>";
@@ -252,6 +252,7 @@
 			files = (
 				98E9EE851F7B8EF70002C412 /* LaunchScreen.storyboard in Resources */,
 				98E9EE821F7B8EF70002C412 /* Assets.xcassets in Resources */,
+				98A40D6F1F8354B200BA82C8 /* GoodLife.plist in Resources */,
 				980F18A91F7BE5B1005984C5 /* Product.storyboard in Resources */,
 				980F18971F7B9376005984C5 /* Landing.storyboard in Resources */,
 			);
@@ -315,7 +316,6 @@
 				98C6DEA71F7E45E30019816F /* FavoriteCollectionViewCell.swift in Sources */,
 				98C6DEA51F7E456A0019816F /* FavoriteProductCollectionViewController.swift in Sources */,
 				98E9EE921F7B90BB0002C412 /* LandingViewController.swift in Sources */,
-				980F18AF1F7C97C2005984C5 /* APIKey.swift in Sources */,
 				9891AC2E1F7CF7AB00C4FD4C /* ProductCollectionViewCell.swift in Sources */,
 				9891AC2A1F7CED4800C4FD4C /* Product.swift in Sources */,
 				980F18AD1F7C969D005984C5 /* Product+Constants.swift in Sources */,

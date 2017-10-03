@@ -11,3 +11,20 @@ import Foundation
 let productListURLString = "http://api.igoodtravel.com/buy/topics"
 
 let favoriteListURLString = "http://api.igoodtravel.com/buy/notes"
+
+var webAPIKey: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["WebAPIKey"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
