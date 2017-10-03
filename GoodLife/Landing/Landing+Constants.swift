@@ -8,8 +8,70 @@
 
 import Foundation
 
-let clientID = "0ee458c037566d401bc3618be7cacc2fd5b5544f8b06040a2b3ca9c1f725dcce"
-let clientSecret = "302544c6b4613a79ead2e3ae5de5efee761aec3f5f9e1f052408cc06f87b1885"
-let redirectURI = "goodlifebuy://oauth/oauth_redirect"
+var clientID: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["ClientID"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
 
-let requestCode = "1754c990cb825e38431c1766469cb5d0ffa2dae96ba6b8562112a0836cbe3583"
+var clientSecret: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["ClientSecret"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
+
+var requestCode: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["RequestCode"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
+
+var redirectURI: String {
+    
+    if let url = Bundle.main.url(forResource:"GoodLife", withExtension: "plist") {
+        do {
+            let data = try Data(contentsOf:url)
+            let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+            
+            return swiftDictionary["RedirectURI"] as! String
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    return ""
+}
